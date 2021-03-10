@@ -1,4 +1,4 @@
-# PD2_Baneazy_Loot_Filter
+# PD2 Baneazy Loot Filter
 Loot filter code for Project Diablo 2
 
 This is my personal loot filter for PD2. It should be a great filter from beginning to end game. It is more tailored for end game but it's usuable for early/mid game as well.
