@@ -1,7 +1,7 @@
-// Baneazy's Project Diablo 2 Loot Filter V2
+// Baneazy's Project Diablo 2 Loot Filter V1
 // Youtube: https://www.youtube.com/channel/UC06FIZChVr1558K4J0LlDoQ
 // Twitch: Twitch.tv/Baneazy
-// Date: 3/10/2021
+// Date: 2/22/2021
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -27,7 +27,7 @@ ItemDisplay[NMAG CL3 RES>0]: %BLUE%RES %WHITE%%NAME%%CONTINUE%// Res prefix for 
 ItemDisplay[MAG cm1 ID]: %BLUE%SC%CONTINUE%// Identified small charms default to name "SC".
 ItemDisplay[MAG cm2 ID]: %BLUE%LC// Identified large charms default to name "LC".
 ItemDisplay[MAG cm3 ID]: %BLUE%GC%CONTINUE%// Identified grand charms default name to "GC".
-ItemDisplay[MAG ((rin OR amu OR WEAPON) ILVL>87) OR ((cm1 OR cm3) ILVL>90)) ]: %NAME% %WHITE%[%RED%i%ILVL%%WHITE%]%CONTINUE%// Item level on magic rings, amulets, and weapons 88+ for crafting. Item level on small and grand charms 91+ for rerolling.
+ItemDisplay[MAG ((rin OR amu OR WEAPON) ILVL>87) OR (MAG (cm1 OR cm3) ILVL>90)) ]: %NAME% %WHITE%[%RED%i%ILVL%%WHITE%]%CONTINUE%// Item level on magic rings, amulets, and weapons 88+ for crafting. Item level on small and grand charms 91+ for rerolling.
 ItemDisplay[((NMAG (WEAPON OR ARMOR)) OR MAG OR RARE OR UNI OR SET) PRICE>34999]: %NAME% %DARK_GREEN%$%GOLD%35K%CONTINUE%// Non magic armor, weapons, magic, rare, unique, and set items worth 35,000 gold.
 //ItemDisplay[ALVL>79]: %NAME% %WHITE%[%RED%a%ILVL%%WHITE%]%CONTINUE%// Non magic armor, weapons, magic, rare, unique, and set items worth 35,000 gold.
 
@@ -166,13 +166,13 @@ ItemDisplay[jew IAS>0 ID]: %YELLOW%IAS %NAME%%CONTINUE%// Increased attack speed
 ItemDisplay[jew ED>0 ID]: %RED%ED %NAME%%CONTINUE%// 35+ Enhanced damage.
 ItemDisplay[jew FHR>0 ID]: %WHITE%FHR %NAME%%CONTINUE%// Faster hit recovery.
 ItemDisplay[jew MAXDMG>0 ID]: %RED%Max %NAME%%CONTINUE%// Maximum damage.
+ItemDisplay[jew RES>0 ID]: %GOLD%@%PURPLE%RES %NAME%// All resistances.
 
 // ==================== Gems ====================
 ItemDisplay[GEMLEVEL<4 DIFF=2]: // Hide chipped, flawed, and regular gems in Hell.
 ItemDisplay[GEMLEVEL>3]: %PX-20%%NAME%%CONTINUE%// Notify flawless and perfect.
 ItemDisplay[GEM=5]: %NAME%// Perfect gems.
 ItemDisplay[GEM<5]: %NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 %WHITE%Gems with %GRAY%key %WHITE%to upg}// Recipe for combining gems.
-
 
 // ==================== Runes ====================
 ItemDisplay[RUNE<15]: %PX-62%%NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes EL-Dol.
@@ -233,7 +233,6 @@ ItemDisplay[MAG EQ3 EQ5 EQ6 DIFF=2]: // Magic shields, boots, and helmets in hel
 ItemDisplay[MAG (ELT ((ETH ARMOR) OR (!ETH WEAPON))) !amf !CL7 !7lw !7tw !WP5 !uit]: // Magic (elite ethereal armors or non ethereal weapons) except Matriarchal Javelin, amazon weapons, feral claws, runic claws, or throw weapons.
 // ==================== Magic ====================
 ItemDisplay[MAG ETH WEAPON ILVL>87]: %PX-99%%NAME%%CONTINUE%// Notify iLvl 88+ craftable ethereal weapons.
-//ItemDisplay[MAG !ETH (EQ7 OR CL1 OR CL2 OR uit)]: %BLUE%%NAME%%CONTINUE%// Show non ethereal magic circlets, barbarian helmets, druid helmets, and monarchs.
 ItemDisplay[MAG (am5 OR ama OR amf)]: %NAME%// Shows magic Amazon javelins.
 ItemDisplay[MAG (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %NAME%// Shows magic Assassin claws.
 
