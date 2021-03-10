@@ -259,7 +259,8 @@ ItemDisplay[UNI !ID]: %DOT-0E%%GOLD%%NAME%%CONTINUE%// Notify unique item.
 //ItemDisplay[SET NORM]: // Normal set items.
 //ItemDisplay[SET EXC]: // Exceptional set items.
 //==================== Set ====================
-ItemDisplay[SET DIFF<2]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify all sets below hell.
+ItemDisplay[SET NORM DIFF<1]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify normal sets below nightmare.
+ItemDisplay[SET EXC DIFF<2]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify exceptional sets below hell.
 //ItemDisplay[SET (dr8 OR uul)]: %MAP-84%%GREEN%%NAME%%CONTINUE%// Aldur's helmet and armor.
 //ItemDisplay[SET (urn OR 7ws OR paf)]: %MAP-84%%GREEN%%NAME%%CONTINUE%// Griswold's helmet, weapon, and shield.
 //ItemDisplay[SET uar]: %MAP-84%%GREEN%%NAME%%CONTINUE%// Immortal King's armor.
