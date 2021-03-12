@@ -1,7 +1,9 @@
-// Baneazy's Project Diablo 2 Loot Filter V1
+// Baneazy's Project Diablo 2 Loot Filter V2.1
 // Youtube: https://www.youtube.com/channel/UC06FIZChVr1558K4J0LlDoQ
 // Twitch: Twitch.tv/Baneazy
 // Date: 2/22/2021
+//
+// V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -73,18 +75,20 @@ ItemDisplay[cqv DIFF>0]://%WHITE%Bolts// Bolts. Not shown after Normal. Can stil
 ItemDisplay[aqv DIFF>0]://%WHITE%Arrows// Arrows. Not shown after Normal. Can still be bought from vendors.
 ItemDisplay[wss]: %MAP-9B%%NL%%NAME%%NL%// Worldstone Shard
 ItemDisplay[lbox]: %GOLD%%NAME%%CONTINUE%// Larzuk's Puzzle Box. Notification is covered under the "GG ITEMS" section.
-ItemDisplay[(imra OR imma OR scou OR rera OR upma)]: %GOLD%%NAME%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb
+ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb, Cartographer's Orb, Horadrim Scarab
 
 // ==================== Maps ====================
-ItemDisplay[t16 NMAG]: %ORANGE%@@%WHITE%T1 Map%ORANGE%@@// Normal Tier 1 Maps
-ItemDisplay[t16 MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T1 Map%ORANGE%@@// Magic Tier 1 Maps
-ItemDisplay[t16 RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T1 Map%ORANGE%@@// Rare Tier 1 Maps
-ItemDisplay[t18 NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
-ItemDisplay[t18 MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
-ItemDisplay[t18 RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
-ItemDisplay[t17 NMAG]: %DOT-6F%%NL%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@%NL%// Normal Tier 3 Maps
-ItemDisplay[t17 MAG !ID]: %DOT-6F%%NL%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@%NL%// Magic Tier 3 Maps
-ItemDisplay[t17 RARE !ID]: %DOT-6F%%NL%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@%NL%// Rare Tier 3 Maps
+// Dungeons are in the GG Items section
+ItemDisplay[std]: %NAME%{%TAN%Note%WHITE%: cube with map for 10% XP, 20% MF/GF, and 20% Density%NL%%RED%1 Per Map}// Standard of Heroes
+ItemDisplay[(t11 OR t12 OR t13) NMAG]: %ORANGE%@@%WHITE%T1 Map%ORANGE%@@// Normal Tier 1 Maps
+ItemDisplay[(t11 OR t12 OR t13) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T1 Map%ORANGE%@@// Magic Tier 1 Maps
+ItemDisplay[(t11 OR t12 OR t13) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T1 Map%ORANGE%@@// Rare Tier 1 Maps
+ItemDisplay[(t21 OR t22 OR t23 OR t24) NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
+ItemDisplay[(t21 OR t22 OR t23 OR t24) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
+ItemDisplay[(t21 OR t22 OR t23 OR t24) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%NL%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@%NL%// Normal Tier 3 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%NL%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@%NL%// Magic Tier 3 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%NL%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@%NL%// Rare Tier 3 Maps
 
 // ==================== Uber Items ==================== ........... From Kryszard's PD2 Loot Filter ver 1.5.5 ........... 
 ItemDisplay[(dcho OR dcso OR dcbl)]: %BORDER-62%%NL%%RED%%NAME%%NL%{%ORANGE%Black Soulstone %WHITE%+ %ORANGE%Prime Evil Soul %WHITE%+ %ORANGE%Pure Demonic Essence%NL%%TAN%DClone Recipe:}// Black Soulstone, Prime Evil Soul, Pure Demonic Essence, Vision Of Terror
@@ -273,6 +277,8 @@ ItemDisplay[SET EXC DIFF<2]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify exceptiona
 // ==================== GG ITEMS ====================
 ItemDisplay[!ID SET (dr8 OR uul OR urn OR 7ws OR paf OR uar OR ci3 OR amc OR uld OR ucl OR oba OR uth OR zmb OR uh9 OR xul OR ne9 OR utc OR xmg OR ulg OR xhm)]: %BORDER-84%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GREEN%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing set items.
 ItemDisplay[!ID (lbox OR (UNI (jew OR cm3 OR rin OR amu OR xh9 OR xhm OR uap OR ulm OR usk OR uh9 OR uhm OR urn OR xea OR xhn OR xpl OR xld OR xth OR upl OR uld OR uar OR xsh OR xow OR uit OR uow OR uts OR mgl OR tgl OR uvg OR umg OR uhg OR lbt OR tbt OR xlb OR xvb OR xtb OR xhb OR uvb OR umb OR uhb OR lbl OR zvb OR ztb OR xhb OR ulc OR uvc OR umc OR ci2 OR ci3 OR dra OR drb OR baa OR bac OR pa9 OR pac OR pae OR nea OR nee OR nef OR (ETH (72a OR 7bt OR 7ga OR 7gi OR mau OR 9gm OR 7m7 OR 7gm OR 7kr OR 7b8 OR 7s7 OR 7gl OR 7ts OR 7s8 OR 7pa OR 7o7 OR 6ls)) OR 7wa OR 7fl OR 7wh OR 9cr OR 7gd OR 7dg OR 6sw OR 6lw OR 8mx OR 6ws OR WP12 OR 9ws OR 7sc OR 7ws OR CL5 OR CL6 OR ama OR am9 OR amd OR amf)))]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing Larzuk's Puzzle Box and gg unique items.
+ItemDisplay[t41]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for dungeon maps.
+
 
 // ==================== Runewords ==================== >>>>>>>>>>>>>>>>> RUNEWORDS ARE BASED OFF THE PD2 WEBSITE <<<<<<<<<<<<<< https://projectdiablo2.miraheze.org/wiki/Main_Page
 // .......... BODY ARMOR ..........
