@@ -236,8 +236,8 @@ ItemDisplay[NMAG CL3 RES>10 DIFF<2]: %DOT-1F%%NAME%%CONTINUE%// Paladin shields 
 ItemDisplay[NMAG (ELT OR EXC) CL3 RES>19 DIFF=2]: %DOT-1F%%NAME%%CONTINUE%// Paladin shields with resistance greater than 19 in hell. There is line in HIDE section you need to adjust to hide paladin shields with less than the resistance you want to see. >>>>>>>>>> ADJUST RES AMOUNT AS NEEDED <<<<<<<<<<
 
 // .................... HIDE MAGIC ....................
-ItemDisplay[MAG !WP12 !CL6 NORM (ARMOR OR (!ETH WEAPON)) (ILVL>69 (!sbb !lwb !lbb)) !am5 !clw !btl !EQ7 !EQ4 DIFF>0]: // Normal magic weapons and armors except claws, blade talons, gloves and circlets.
-ItemDisplay[MAG !WP12 !CL6 EXC (ARMOR OR (!ETH WEAPON)) (ILVL>69 (!8s8 !8lw !8l8))!ama !9lw !9tw !EQ7 !EQ4 DIFF>1]: // Exceptional magic weapons and armors except greater claws, greater talons, gloves and circlets.
+ItemDisplay[MAG !WP12 !CL6 (ILVL>69 (!sbb !lwb !lbb)) !am5 !clw !btl !EQ7 !EQ4 NORM (ARMOR OR (!ETH WEAPON)) DIFF>0]: // Normal magic weapons and armors except claws, blade talons, gloves and circlets.
+ItemDisplay[MAG !WP12 !CL6 (ILVL>69 (!8s8 !8lw !8l8))!ama !9lw !9tw !EQ7 !EQ4 EXC (ARMOR OR (!ETH WEAPON)) DIFF>1]: // Exceptional magic weapons and armors except greater claws, greater talons, gloves and circlets.
 ItemDisplay[MAG EQ3 EQ5 EQ6 DIFF=2]: // Magic shields, boots, and helmets in hell.
 ItemDisplay[MAG !WP12 !CL6 (ELT ((ETH ARMOR) OR (!ETH WEAPON))) !6s7 !6l7 ! 6lw !amf !CL7 !7lw !7tw !WP5 !uit]: // Magic (elite ethereal armors or non ethereal weapons) except Matriarchal Javelin, amazon weapons, feral claws, runic claws, or throw weapons.
 // ==================== Magic ====================
@@ -245,7 +245,7 @@ ItemDisplay[MAG ETH WEAPON ILVL>87]: %PX-99%%NAME%%CONTINUE%// Notify iLvl 88+ c
 ItemDisplay[MAG (am5 OR ama OR amf)]: %NAME%// Shows magic Amazon javelins.
 ItemDisplay[MAG (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %NAME%// Shows magic Assassin claws.
 ItemDisplay[MAG ETH (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %DOT-97%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
-ItemDisplay[MAG (WP9 OR WP10)]: %DOT-97%%NAME% %RED%Craft%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
+ItemDisplay[MAG (sbb OR lwb OR lbb OR 8s8 OR 8lw OR 8l8 OR 6s7 OR 6l7 OR 6lw OR 6rs OR 6hx)]: %DOT-97%%NAME% %RED%Craft%CONTINUE%// Bows/XBows for crafting.
 
 // .......... HIDE RARE ..........
 ItemDisplay[RARE NORM !EQ5 !EQ6 !EQ4 !EQ7 !am5 !CL5 (ARMOR OR (!ETH WEAPON)) DIFF>0]: // Non elite rare body armors, shields, and weapons after normal. Doesn't hide rare claws.
