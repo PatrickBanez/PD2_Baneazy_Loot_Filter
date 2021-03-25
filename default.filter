@@ -1,9 +1,13 @@
-// Baneazy's Project Diablo 2 Loot Filter V2.1
+// Baneazy's Project Diablo 2 Loot Filter V2.2
 // Youtube: https://www.youtube.com/channel/UC06FIZChVr1558K4J0LlDoQ
 // Twitch: Twitch.tv/Baneazy
-// Date: 2/22/2021
+// Date: 3/17/2021
 //
 // V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
+// V2.2 fixed puzzle box for drop notification/pick up box, enabled magic orbs and wands for crafting, added caster notes for magic wands and orbs
+// 	added 0 socket and 3os claw bases w/ Weapon block.
+// V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
+//	Added crafting recipe for safety bows.
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -40,7 +44,7 @@ ItemDisplay[GOLD<5000 CLVL>60]:// Hide gold less than 5000 after level 60.
 // ==================== Potions ====================
 ItemDisplay[hp1 DIFF<1]: %RED%+%WHITE%HP1%RED%+// Minor HP in Normal.
 ItemDisplay[hp2 DIFF<1]: %RED%+%WHITE%HP2%RED%+// Lesser HP in Normal.
-ItemDisplay[hp3 DIFF<1]: %RED%+%WHITE%HP3%RED%+// HP in Normal.
+ItemDisplay[hp3 DIFF<2]: %RED%+%WHITE%HP3%RED%+// HP in Normal.
 ItemDisplay[hp4 DIFF<2]: %RED%+%WHITE%HP4%RED%+// Greater HP below Hell.
 ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4) DIFF=2]:// Hide all healing potions except Super in Hell.
 ItemDisplay[hp5]: %RED%+%WHITE%HP5%RED%+// Super HP
@@ -74,7 +78,7 @@ ItemDisplay[leg]: %GOLD%%NAME%// Wirt's Leg.
 ItemDisplay[cqv DIFF>0]://%WHITE%Bolts// Bolts. Not shown after Normal. Can still be bought from vendors.
 ItemDisplay[aqv DIFF>0]://%WHITE%Arrows// Arrows. Not shown after Normal. Can still be bought from vendors.
 ItemDisplay[wss]: %MAP-9B%%NL%%NAME%%NL%// Worldstone Shard
-ItemDisplay[lbox]: %GOLD%%NAME%%CONTINUE%// Larzuk's Puzzle Box. Notification is covered under the "GG ITEMS" section.
+ItemDisplay[lbox]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Larzuk's Puzzle Box.
 ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb, Cartographer's Orb, Horadrim Scarab
 
 // ==================== Maps ====================
@@ -220,6 +224,7 @@ ItemDisplay[NMAG (EXC OR ELT) WP11 (SOCK=0 OR SOCK=4) (SK58>1 (SK60>1 OR SK50>1)
 //ItemDisplay[NMAG SOCK=3 (WP9 OR WP10)]: %DOT-1F%%NAME%%CONTINUE%// Bows and crossbows with 3 sockets (for Edge Runword). There is a line in the "HIDE" section for these, make sure you disable the "HIDE" line and enable this one.
 //ItemDisplay[NMAG (SOCK=0 OR SOCK>2) CL5]: %NAME%%CONTINUE%// Show 0 socket or more than 1 socketed claw bases.
 ItemDisplay[NMAG SOCK=4 WP13 DIFF=2]: %DOT-1F%%WHITE%%NAME%%CONTINUE%// All scepters in hell. 4 socket.
+ItemDisplay[NMAG (SOCK=0 OR SOCK=3) CL5 SK263=3]: %DOT-1F%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
 // .......... Helmets ..........
 ItemDisplay[NMAG CL1 SK245>2]: %PX-1F%%PURPLE%3Nado %WHITE%%NAME%%CONTINUE%// 3 Tornado helmets prefix.
 ItemDisplay[NMAG CL2 TABSK34>2]: %PX-1F%%PURPLE%3WC %WHITE%%NAME%%CONTINUE%// 3 Warcries helmets prefix.
@@ -231,14 +236,16 @@ ItemDisplay[NMAG CL3 RES>10 DIFF<2]: %DOT-1F%%NAME%%CONTINUE%// Paladin shields 
 ItemDisplay[NMAG (ELT OR EXC) CL3 RES>19 DIFF=2]: %DOT-1F%%NAME%%CONTINUE%// Paladin shields with resistance greater than 19 in hell. There is line in HIDE section you need to adjust to hide paladin shields with less than the resistance you want to see. >>>>>>>>>> ADJUST RES AMOUNT AS NEEDED <<<<<<<<<<
 
 // .................... HIDE MAGIC ....................
-ItemDisplay[MAG NORM (ARMOR OR (!ETH WEAPON)) !am5 !clw !btl !EQ7 !EQ4 DIFF>0]: // Normal magic weapons and armors except claws, blade talons, gloves and circlets.
-ItemDisplay[MAG EXC (ARMOR OR (!ETH WEAPON)) !ama !9lw !9tw !EQ7 !EQ4 DIFF>1]: // Exceptional magic weapons and armors except greater claws, greater talons, gloves and circlets.
+ItemDisplay[MAG !WP12 !CL6 NORM (ARMOR OR (!ETH WEAPON)) (ILVL>69 (!sbb !lwb !lbb)) !am5 !clw !btl !EQ7 !EQ4 DIFF>0]: // Normal magic weapons and armors except claws, blade talons, gloves and circlets.
+ItemDisplay[MAG !WP12 !CL6 EXC (ARMOR OR (!ETH WEAPON)) (ILVL>69 (!8s8 !8lw !8l8))!ama !9lw !9tw !EQ7 !EQ4 DIFF>1]: // Exceptional magic weapons and armors except greater claws, greater talons, gloves and circlets.
 ItemDisplay[MAG EQ3 EQ5 EQ6 DIFF=2]: // Magic shields, boots, and helmets in hell.
-ItemDisplay[MAG (ELT ((ETH ARMOR) OR (!ETH WEAPON))) !amf !CL7 !7lw !7tw !WP5 !uit]: // Magic (elite ethereal armors or non ethereal weapons) except Matriarchal Javelin, amazon weapons, feral claws, runic claws, or throw weapons.
+ItemDisplay[MAG !WP12 !CL6 (ELT ((ETH ARMOR) OR (!ETH WEAPON))) !6s7 !6l7 ! 6lw !amf !CL7 !7lw !7tw !WP5 !uit]: // Magic (elite ethereal armors or non ethereal weapons) except Matriarchal Javelin, amazon weapons, feral claws, runic claws, or throw weapons.
 // ==================== Magic ====================
 ItemDisplay[MAG ETH WEAPON ILVL>87]: %PX-99%%NAME%%CONTINUE%// Notify iLvl 88+ craftable ethereal weapons.
 ItemDisplay[MAG (am5 OR ama OR amf)]: %NAME%// Shows magic Amazon javelins.
 ItemDisplay[MAG (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %NAME%// Shows magic Assassin claws.
+ItemDisplay[MAG ETH (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %DOT-97%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
+ItemDisplay[MAG (WP9 OR WP10)]: %DOT-97%%NAME% %RED%Craft%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
 
 // .......... HIDE RARE ..........
 ItemDisplay[RARE NORM !EQ5 !EQ6 !EQ4 !EQ7 !am5 !CL5 (ARMOR OR (!ETH WEAPON)) DIFF>0]: // Non elite rare body armors, shields, and weapons after normal. Doesn't hide rare claws.
@@ -276,7 +283,7 @@ ItemDisplay[SET EXC DIFF<2]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify exceptiona
 
 // ==================== GG ITEMS ====================
 ItemDisplay[!ID SET (dr8 OR uul OR urn OR 7ws OR paf OR uar OR ci3 OR amc OR uld OR ucl OR oba OR uth OR zmb OR uh9 OR xul OR ne9 OR utc OR xmg OR ulg OR xhm)]: %BORDER-84%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GREEN%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing set items.
-ItemDisplay[!ID (lbox OR (UNI (jew OR cm3 OR rin OR amu OR xh9 OR xhm OR uap OR ulm OR usk OR uh9 OR uhm OR urn OR xea OR xhn OR xpl OR xld OR xth OR upl OR uld OR uar OR xsh OR xow OR uit OR uow OR uts OR mgl OR tgl OR uvg OR umg OR uhg OR lbt OR tbt OR xlb OR xvb OR xtb OR xhb OR uvb OR umb OR uhb OR lbl OR zvb OR ztb OR xhb OR ulc OR uvc OR umc OR ci2 OR ci3 OR dra OR drb OR baa OR bac OR pa9 OR pac OR pae OR nea OR nee OR nef OR (ETH (72a OR 7bt OR 7ga OR 7gi OR mau OR 9gm OR 7m7 OR 7gm OR 7kr OR 7b8 OR 7s7 OR 7gl OR 7ts OR 7s8 OR 7pa OR 7o7 OR 6ls)) OR 7wa OR 7fl OR 7wh OR 9cr OR 7gd OR 7dg OR 6sw OR 6lw OR 8mx OR 6ws OR WP12 OR 9ws OR 7sc OR 7ws OR CL5 OR CL6 OR ama OR am9 OR amd OR amf)))]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing Larzuk's Puzzle Box and gg unique items.
+ItemDisplay[!ID (UNI (jew OR cm3 OR rin OR amu OR xh9 OR xhm OR uap OR ulm OR usk OR uh9 OR uhm OR urn OR xea OR xhn OR xpl OR xld OR xth OR upl OR uld OR uar OR xsh OR xow OR uit OR uow OR uts OR mgl OR tgl OR uvg OR umg OR uhg OR lbt OR tbt OR xlb OR xvb OR xtb OR xhb OR uvb OR umb OR uhb OR lbl OR zvb OR ztb OR xhb OR ulc OR uvc OR umc OR ci2 OR ci3 OR dra OR drb OR baa OR bac OR pa9 OR pac OR pae OR nea OR nee OR nef OR (ETH (72a OR 7bt OR 7ga OR 7gi OR mau OR 9gm OR 7m7 OR 7gm OR 7kr OR 7b8 OR 7s7 OR 7gl OR 7ts OR 7s8 OR 7pa OR 7o7 OR 6ls)) OR 7wa OR 7fl OR 7wh OR 9cr OR 7gd OR 7dg OR 6sw OR 6lw OR 8mx OR 6ws OR WP12 OR 9ws OR 7sc OR 7ws OR CL5 OR CL6 OR ama OR am9 OR amd OR amf))]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing Larzuk's Puzzle Box and gg unique items.
 ItemDisplay[t41]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for dungeon maps.
 
 
@@ -353,9 +360,11 @@ ItemDisplay[NMAG (EQ3 OR CL3) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %
 ItemDisplay[NMAG WEAPON !SUP SOCK=0]: %NAME%{%WHITE%Ral + Amn + %Purple%P Amythest%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior weapon socket recipe.
 ItemDisplay[NMAG WEAPON SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior weapon socket recipe.
 // .................... Magic ....................
+ItemDisplay[MAG (WP9 OR WP10)]: %NAME%%WHITE%{%RED%Crafting %WHITE%Recipe: Sol + %GREEN%P Emerald %WHITE%+ %BLUE%Jewel} // Crafting recipe for safety bows.
 ItemDisplay[MAG ETH WEAPON ID]: %NAME%{%WHITE%Ort + %RED%P Ruby %WHITE%+ Any %BLUE%Jewel%NL%%ORANGE%Crafting Recipe:}%CONTINUE%// Crafting recipe for weapons. Ethereal is used because I only want to find ethereal weapons, other go onto the hide section.
 ItemDisplay[(MAG OR RARE) (am5 OR ama OR amf) ((TABSK2=3 AND CLSK0=2) OR (TABSK2=2 AND CLSK0=3)) IAS>29 ID]: %PURPLE%5/ias %BLUE%%NAME%// Magic and rare +5 Javelin Skills and 30-40 increased attack speed Amazon Javelins.
 ItemDisplay[(MAG OR RARE) (am5 OR ama OR amf) (TABSK2=3 AND CLSK0=3) IAS>29 ID]: %PURPLE%6/ias %BLUE%%NAME%// Magic and rare +6 Javelin Skills and 30-40 increased attack speed Amazon Javelins.
 ItemDisplay[(MAG OR RARE) CL2 !ETH ((SK149=3 AND CLSK4=2) OR (SK149=2 AND CLSK4=3) OR (CLSK4=2 AND TABSK34=3) OR (CLSK4=3 AND TABSK34=2) OR (TABSK34=3 AND SK149=2) OR (TABSK34=2 AND SK149=3)) ID]: %PURPLE%5BO %BLUE%%NAME%// Magic and rare +5 Battle Orders Barbarian helmet.
 ItemDisplay[(MAG OR RARE) CL1 !ETH ((CLSK5=3 AND TABSK42=2) OR (CLSK5=2 AND TABSK42=3) OR (CLSK5=3 AND SK245=2) OR (CLSK4=2 AND SK245=3) OR (TABSK42=3 AND SK245=2) OR (TABSK42=2 AND SK245=3)) ID]: %PURPLE%5NADO %BLUE%%NAME%// Magic and rare  +5 Tornado Druid helmet.
+ItemDisplay[MAG (CL6 OR WP12) ID]: %NAME%{%RED%Caster Recipe%WHITE%: %WHITE%Tir + %PURPLE%P Amy %WHITE%+ Jewel}// Note for caster recipe for magic wands/orbs.
 // .................... Rare ....................
