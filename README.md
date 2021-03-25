@@ -7,7 +7,9 @@ javazon skill with 20 increased attack speed gloves. There are some items like t
 please let me know.
 
 V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
+
 V2.2 fixed puzzle box for drop notification/pick up box, enabled magic orbs and wands for crafting, added caster notes for magic wands and orbs
      added 0 socket and 3os claw bases w/ Weapon block.
+     
 V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
      Added crafting recipe for safety bows.
