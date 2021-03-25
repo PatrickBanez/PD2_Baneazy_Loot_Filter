@@ -245,7 +245,7 @@ ItemDisplay[MAG ETH WEAPON ILVL>87]: %PX-99%%NAME%%CONTINUE%// Notify iLvl 88+ c
 ItemDisplay[MAG (am5 OR ama OR amf)]: %NAME%// Shows magic Amazon javelins.
 ItemDisplay[MAG (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %NAME%// Shows magic Assassin claws.
 ItemDisplay[MAG ETH (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %DOT-97%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
-ItemDisplay[MAG (sbb OR lwb OR lbb OR 8s8 OR 8lw OR 8l8 OR 6s7 OR 6l7 OR 6lw OR 6rs OR 6hx)]: %DOT-97%%NAME% %RED%Craft%CONTINUE%// Bows/XBows for crafting.
+ItemDisplay[MAG (sbb OR lwb OR lbb OR 8s8 OR 8lw OR 8l8 OR 6s7 OR 6l7 OR 6lw OR 6rs OR 6hx)]: %DOT-97%%NAME%%CONTINUE%// Bows/XBows for crafting.
 
 // .......... HIDE RARE ..........
 ItemDisplay[RARE NORM !EQ5 !EQ6 !EQ4 !EQ7 !am5 !CL5 (ARMOR OR (!ETH WEAPON)) DIFF>0]: // Non elite rare body armors, shields, and weapons after normal. Doesn't hide rare claws.
