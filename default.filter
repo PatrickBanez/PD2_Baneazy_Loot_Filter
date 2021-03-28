@@ -8,6 +8,7 @@
 // 	added 0 socket and 3os claw bases w/ Weapon block.
 // V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
 //	Added crafting recipe for safety bows.
+// V2.2b removed %NL% from code
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -77,8 +78,8 @@ ItemDisplay[ear]: %TAN%%NAME%// Player's ear.
 ItemDisplay[leg]: %GOLD%%NAME%// Wirt's Leg.
 ItemDisplay[cqv DIFF>0]://%WHITE%Bolts// Bolts. Not shown after Normal. Can still be bought from vendors.
 ItemDisplay[aqv DIFF>0]://%WHITE%Arrows// Arrows. Not shown after Normal. Can still be bought from vendors.
-ItemDisplay[wss]: %MAP-9B%%NL%%NAME%%NL%// Worldstone Shard
-ItemDisplay[lbox]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Larzuk's Puzzle Box.
+ItemDisplay[wss]: %MAP-9B%%NAME%// Worldstone Shard
+ItemDisplay[lbox]: %BORDER-0E%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$// Larzuk's Puzzle Box.
 ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb, Cartographer's Orb, Horadrim Scarab
 
 // ==================== Maps ====================
@@ -90,12 +91,12 @@ ItemDisplay[(t11 OR t12 OR t13) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T1 Map%ORAN
 ItemDisplay[(t21 OR t22 OR t23 OR t24) NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
 ItemDisplay[(t21 OR t22 OR t23 OR t24) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
 ItemDisplay[(t21 OR t22 OR t23 OR t24) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%NL%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@%NL%// Normal Tier 3 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%NL%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@%NL%// Magic Tier 3 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%NL%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@%NL%// Rare Tier 3 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@// Normal Tier 3 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@// Magic Tier 3 Maps
+ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@// Rare Tier 3 Maps
 
 // ==================== Uber Items ==================== ........... From Kryszard's PD2 Loot Filter ver 1.5.5 ........... 
-ItemDisplay[(dcho OR dcso OR dcbl)]: %BORDER-62%%NL%%RED%%NAME%%NL%{%ORANGE%Black Soulstone %WHITE%+ %ORANGE%Prime Evil Soul %WHITE%+ %ORANGE%Pure Demonic Essence%NL%%TAN%DClone Recipe:}// Black Soulstone, Prime Evil Soul, Pure Demonic Essence, Vision Of Terror
+ItemDisplay[(dcho OR dcso OR dcbl)]: %BORDER-62%%RED%%NAME%{%ORANGE%Black Soulstone %WHITE%+ %ORANGE%Prime Evil Soul %WHITE%+ %ORANGE%Pure Demonic Essence%NL%%TAN%DClone Recipe:}// Black Soulstone, Prime Evil Soul, Pure Demonic Essence, Vision Of Terror
 ItemDisplay[pk1]: %PX-62%%RED%%NAME%%WHITE%{%TAN%Key %WHITE%from: %RED%Countess %WHITE%or %RED%Blood Raven}// Terror Key
 ItemDisplay[pk2]: %PX-62%%RED%%NAME%%WHITE%{%TAN%Key %WHITE%from: %BLUE%Summoner %WHITE%or %BLUE%Bloodwitch}// Hate Key
 ItemDisplay[pk3]: %PX-62%%RED%%NAME%%WHITE%{%TAN%Key %WHITE%from: %PURPLE%Nihlathak %WHITE%or %PURPLE%Izual}// Destruction Key
@@ -185,8 +186,8 @@ ItemDisplay[GEM<5]: %NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 %WHITE%Gems with %GRA
 // ==================== Runes ====================
 ItemDisplay[RUNE<15]: %PX-62%%NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes EL-Dol.
 ItemDisplay[RUNE>14 RUNE<21]: %DOT-62%%NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes Hel-Lem.
-ItemDisplay[RUNE>20 RUNE<25]: %MAP-62%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$%WHITE% %NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%{%TAN%Note%WHITE%: Mix %ORANGE%2 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes Pul-Ist.
-ItemDisplay[RUNE>24]: %BORDER-62%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$%WHITE% %NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%{%TAN%Note%WHITE%: Mix %ORANGE%2 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes Gul-Zod.
+ItemDisplay[RUNE>20 RUNE<25]: %MAP-62%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$%WHITE% %NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%${%TAN%Note%WHITE%: Mix %ORANGE%2 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes Pul-Ist.
+ItemDisplay[RUNE>24]: %BORDER-62%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$%WHITE% %NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%${%TAN%Note%WHITE%: Mix %ORANGE%2 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes Gul-Zod.
 
 // .................... HIDE BASES ....................
 ItemDisplay[NMAG INF CLVL>20]:// Inferior bases after character level 20. If this is in the "HIDE" section, these items will still get a notification.
@@ -245,7 +246,7 @@ ItemDisplay[MAG ETH WEAPON ILVL>87]: %PX-99%%NAME%%CONTINUE%// Notify iLvl 88+ c
 ItemDisplay[MAG (am5 OR ama OR amf)]: %NAME%// Shows magic Amazon javelins.
 ItemDisplay[MAG (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %NAME%// Shows magic Assassin claws.
 ItemDisplay[MAG ETH (clw OR 9lw OR 7lw OR btl OR 9tw OR 7tw)]: %DOT-97%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
-ItemDisplay[MAG (sbb OR lwb OR lbb OR 8s8 OR 8lw OR 8l8 OR 6s7 OR 6l7 OR 6lw OR 6rs OR 6hx)]: %DOT-97%%NAME%%CONTINUE%// Bows/XBows for crafting.
+ItemDisplay[MAG (6s7 OR 6l7 OR 6lw OR 6rs OR 6hx)]: %DOT-97%%NAME%%CONTINUE%// Notify elite Bows/XBows for crafting.
 
 // .......... HIDE RARE ..........
 ItemDisplay[RARE NORM !EQ5 !EQ6 !EQ4 !EQ7 !am5 !CL5 (ARMOR OR (!ETH WEAPON)) DIFF>0]: // Non elite rare body armors, shields, and weapons after normal. Doesn't hide rare claws.
@@ -282,15 +283,15 @@ ItemDisplay[SET EXC DIFF<2]: %DOT-84%%GREEN%%NAME%%CONTINUE%// Notify exceptiona
 //ItemDisplay[SET (ulg OR xhm)]: %GREEN%%NAME%%CONTINUE%// Laying of Hands and Guillaume's Face.
 
 // ==================== GG ITEMS ====================
-ItemDisplay[!ID SET (dr8 OR uul OR urn OR 7ws OR paf OR uar OR ci3 OR amc OR uld OR ucl OR oba OR uth OR zmb OR uh9 OR xul OR ne9 OR utc OR xmg OR ulg OR xhm)]: %BORDER-84%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GREEN%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing set items.
-ItemDisplay[!ID (UNI (jew OR cm3 OR rin OR amu OR xh9 OR xhm OR uap OR ulm OR usk OR uh9 OR uhm OR urn OR xea OR xhn OR xpl OR xld OR xth OR upl OR uld OR uar OR xsh OR xow OR uit OR uow OR uts OR mgl OR tgl OR uvg OR umg OR uhg OR lbt OR tbt OR xlb OR xvb OR xtb OR xhb OR uvb OR umb OR uhb OR lbl OR zvb OR ztb OR xhb OR ulc OR uvc OR umc OR ci2 OR ci3 OR dra OR drb OR baa OR bac OR pa9 OR pac OR pae OR nea OR nee OR nef OR (ETH (72a OR 7bt OR 7ga OR 7gi OR mau OR 9gm OR 7m7 OR 7gm OR 7kr OR 7b8 OR 7s7 OR 7gl OR 7ts OR 7s8 OR 7pa OR 7o7 OR 6ls)) OR 7wa OR 7fl OR 7wh OR 9cr OR 7gd OR 7dg OR 6sw OR 6lw OR 8mx OR 6ws OR WP12 OR 9ws OR 7sc OR 7ws OR CL5 OR CL6 OR ama OR am9 OR amd OR amf))]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for grabbing Larzuk's Puzzle Box and gg unique items.
-ItemDisplay[t41]: %BORDER-0E%%NL%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$%NL%// Easier for dungeon maps.
+ItemDisplay[!ID SET (dr8 OR uul OR urn OR 7ws OR paf OR uar OR ci3 OR amc OR uld OR ucl OR oba OR uth OR zmb OR uh9 OR xul OR ne9 OR utc OR xmg OR ulg OR xhm)]: %BORDER-84%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GREEN%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$// Easier for grabbing set items.
+ItemDisplay[!ID (UNI (jew OR cm3 OR rin OR amu OR xh9 OR xhm OR uap OR ulm OR usk OR uh9 OR uhm OR urn OR xea OR xhn OR xpl OR xld OR xth OR upl OR uld OR uar OR xsh OR xow OR uit OR uow OR uts OR mgl OR tgl OR uvg OR umg OR uhg OR lbt OR tbt OR xlb OR xvb OR xtb OR xhb OR uvb OR umb OR uhb OR lbl OR zvb OR ztb OR xhb OR ulc OR uvc OR umc OR ci2 OR ci3 OR dra OR drb OR baa OR bac OR pa9 OR pac OR pae OR nea OR nee OR nef OR (ETH (72a OR 7bt OR 7ga OR 7gi OR mau OR 9gm OR 7m7 OR 7gm OR 7kr OR 7b8 OR 7s7 OR 7gl OR 7ts OR 7s8 OR 7pa OR 7o7 OR 6ls)) OR 7wa OR 7fl OR 7wh OR 9cr OR 7gd OR 7dg OR 6sw OR 6lw OR 8mx OR 6ws OR WP12 OR 9ws OR 7sc OR 7ws OR CL5 OR CL6 OR ama OR am9 OR amd OR amf))]: %BORDER-0E%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$// Easier for grabbing Larzuk's Puzzle Box and gg unique items.
+ItemDisplay[t41]: %BORDER-0E%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$// Easier for dungeon maps.
 
 
 // ==================== Runewords ==================== >>>>>>>>>>>>>>>>> RUNEWORDS ARE BASED OFF THE PD2 WEBSITE <<<<<<<<<<<<<< https://projectdiablo2.miraheze.org/wiki/Main_Page
 // .......... BODY ARMOR ..........
 ItemDisplay[NMAG EQ2 SOCK=2]: %NAME%{%WHITE%Prudence, Smoke, Stealth%NL%%ORANGE%Runewords}%CONTINUE%.
-ItemDisplay[NMAG EQ2 SOCK=3]: %NAME%{%WHITE%Lionheart%NL%Wealth, Duress, Enigma,%NL%Gloom, Dragon, Bone,%NL%Enlightenment, Myth,Peace%NL%%ORANGE%Runewords}%CONTINUE%
+ItemDisplay[NMAG EQ2 SOCK=3]: %NAME%{%WHITE%Lionheart%NL%Wealth, Duress, Enigma,%NL%Gloom, Dragon, Bone,%NL%Enlightenment, Myth, Peace%NL%%ORANGE%Runewords}%CONTINUE%
 ItemDisplay[NMAG EQ2 SOCK=4]: %NAME%{%WHITE%Fortitude%NL%Chains of Honor, Bramble, Stone,%NL%%ORANGE%Runewords}%CONTINUE%
 // .......... Shields ..........
 ItemDisplay[NMAG (EQ3 OR CL3) SOCK=2]: %NAME%{%WHITE%Rhyme, Splendor%NL%%ORANGE%Runewords}%CONTINUE%
