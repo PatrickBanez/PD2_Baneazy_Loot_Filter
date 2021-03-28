@@ -8,7 +8,7 @@
 // 	added 0 socket and 3os claw bases w/ Weapon block.
 // V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
 //	Added crafting recipe for safety bows.
-// V2.2b removed %NL% from code
+// V2.2b removed %NL% from code, corrected socket recipe for shield bases, and removed rare claw notifications from rare Amazon javelin line.
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -225,12 +225,12 @@ ItemDisplay[NMAG (EXC OR ELT) WP11 (SOCK=0 OR SOCK=4) (SK58>1 (SK60>1 OR SK50>1)
 //ItemDisplay[NMAG SOCK=3 (WP9 OR WP10)]: %DOT-1F%%NAME%%CONTINUE%// Bows and crossbows with 3 sockets (for Edge Runword). There is a line in the "HIDE" section for these, make sure you disable the "HIDE" line and enable this one.
 //ItemDisplay[NMAG (SOCK=0 OR SOCK>2) CL5]: %NAME%%CONTINUE%// Show 0 socket or more than 1 socketed claw bases.
 ItemDisplay[NMAG SOCK=4 WP13 DIFF=2]: %DOT-1F%%WHITE%%NAME%%CONTINUE%// All scepters in hell. 4 socket.
-ItemDisplay[NMAG (SOCK=0 OR SOCK=3) CL5 SK263=3]: %DOT-1F%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets.
+ItemDisplay[NMAG (SOCK=0 OR SOCK=3) CL5 SK263=3]: %DOT-1F%%NAME%%CONTINUE%// Elite 3 socket claws with 0 or 3 sockets with +3 weapon block.
 // .......... Helmets ..........
 ItemDisplay[NMAG CL1 SK245>2]: %PX-1F%%PURPLE%3Nado %WHITE%%NAME%%CONTINUE%// 3 Tornado helmets prefix.
 ItemDisplay[NMAG CL2 TABSK34>2]: %PX-1F%%PURPLE%3WC %WHITE%%NAME%%CONTINUE%// 3 Warcries helmets prefix.
 ItemDisplay[NMAG CL2 SK149>2]: %PX-1F%%PURPLE%3BO %WHITE%%NAME%%CONTINUE%// 3 Battle Orders helmets prefix.
-ItemDisplay[NMAG EQ7 SOCK=0]: %NAME% %RED%Imbue// Circlets for imbuing.
+ItemDisplay[NMAG !SUP EQ7 SOCK=0]: %NAME% %RED%Imbue// Circlets for imbuing.
 // .......... Body Armor ..........
 // .......... Shields ..........
 ItemDisplay[NMAG CL3 RES>10 DIFF<2]: %DOT-1F%%NAME%%CONTINUE%// Paladin shields with resistance greater than 10 below hell.
@@ -257,7 +257,7 @@ ItemDisplay[RARE ELT WP10 CLVL>60]: // Rare elite crossbows after lvl 60.
 ItemDisplay[RARE !ETH (EQ5 OR EQ7 OR EQ4) !ID]: %DOT-6F%%YELLOW%%NAME%%CONTINUE%// Show rare unidentified non ethereal boots, circlets, and gloves.
 ItemDisplay[RARE (ELT OR ETH) WEAPON]: %NAME%%CONTINUE%// Show rare elite weapons.
 ItemDisplay[RARE !ETH ELT (CL1 OR CL2 OR CL3 OR CL4 OR CL5 OR CL6 OR WP12)]: %DOT-6F%%YELLOW%%NAME%%CONTINUE%// Show rare non ethereal elite druid pelts, barbarian helmets, paladin shields, necromancer shields, assassin weapons, sorceress weapons, and wands.
-ItemDisplay[RARE (am5 OR ama OR amf OR CL5)]: %DOT-6F%%NAME%// Shows rare  Amazon javelins and Assassin claws.
+ItemDisplay[RARE (am5 OR ama OR amf)]: %DOT-6F%%NAME%// Shows rare  Amazon javelins.
 
 // .......... HIDE UNIQUE ..........
 //ItemDisplay[UNI NORM]: // Normal unique items.
@@ -356,7 +356,7 @@ ItemDisplay[NMAG EQ2 !SUP SOCK=0]: %NAME%{%WHITE%Tal + Thul + %YELLOW%P Topaz%NL
 ItemDisplay[NMAG EQ2 SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior base body armor socket recipe.
 ItemDisplay[NMAG (EQ1 OR EQ7) !SUP SOCK=0]: %NAME%{%WHITE%Ral + Thul + %BLUE%P Sapphire%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior helmet socket recipe.
 ItemDisplay[NMAG (EQ1 OR EQ7) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%.// Superior helmet socket recipe.
-ItemDisplay[NMAG (EQ3 OR CL3) !SUP SOCK=0]: %NAME%{%WHITE%Tal + Thul + %YELLOW%P Topaz%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior shield socket recipe.
+ItemDisplay[NMAG (EQ3 OR CL3) !SUP SOCK=0]: %NAME%{%WHITE%Tal + Amn + %RED%P Ruby%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior shield socket recipe.
 ItemDisplay[NMAG (EQ3 OR CL3) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior shield socket recipe.
 ItemDisplay[NMAG WEAPON !SUP SOCK=0]: %NAME%{%WHITE%Ral + Amn + %Purple%P Amythest%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior weapon socket recipe.
 ItemDisplay[NMAG WEAPON SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior weapon socket recipe.
