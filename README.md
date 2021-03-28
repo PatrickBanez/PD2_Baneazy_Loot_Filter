@@ -23,3 +23,5 @@ V2.2 fixed puzzle box for drop notification/pick up box, enabled magic orbs and 
      
 V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
      Added crafting recipe for safety bows.
+
+V2.2b removed %NL% from code, corrected socket recipe for shield bases, and removed rare claw notifications from rare Amazon javelin line.
