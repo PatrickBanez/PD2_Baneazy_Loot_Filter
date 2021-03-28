@@ -3,13 +3,6 @@
 // Twitch: Twitch.tv/Baneazy
 // Date: 3/17/2021
 //
-// V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
-// V2.2 fixed puzzle box for drop notification/pick up box, enabled magic orbs and wands for crafting, added caster notes for magic wands and orbs
-// 	added 0 socket and 3os claw bases w/ Weapon block.
-// V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
-//	Added crafting recipe for safety bows.
-// V2.2b removed %NL% from code, corrected socket recipe for shield bases, and removed rare claw notifications from rare Amazon javelin line.
-//
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
 // Adding double back slash will disable that line, hiding the item in game.
