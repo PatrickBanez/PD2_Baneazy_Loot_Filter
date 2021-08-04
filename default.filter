@@ -1,7 +1,15 @@
-// Baneazy's Project Diablo 2 Loot Filter V2.2b
+// Baneazy's Project Diablo 2 Loot Filter V2.2a
 // Youtube: https://www.youtube.com/channel/UC06FIZChVr1558K4J0LlDoQ
 // Twitch: Twitch.tv/Baneazy
 // Date: 3/17/2021
+//
+// V3.0 changed maps to show tier and name. Added "unstack to see properties" to gems
+// V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
+// V2.2 fixed puzzle box for drop notification/pick up box, enabled magic orbs and wands for crafting, added caster notes for magic wands and orbs
+// 	added 0 socket and 3os claw bases w/ Weapon block.
+// V2.2a added magic bows for crafting. Short battle bow, short siege bow, diamond bow, long battle bow, large siege bow, crusader bow, long war bow, gothic bow, and hydra bow.
+//	Added crafting recipe for safety bows.
+// V2.2b removed %NL% from code, corrected socket recipe for shield bases, and removed rare claw notifications from rare Amazon javelin line.
 //
 // Every line has a comment describing what it is. (Comments are anything after a double back slash //)
 // You can pick and choose what items you want to see by removing or adding //.
@@ -28,7 +36,7 @@ ItemDisplay[MAG cm1 ID]: %BLUE%SC%CONTINUE%// Identified small charms default to
 ItemDisplay[MAG cm2 ID]: %BLUE%LC// Identified large charms default to name "LC".
 ItemDisplay[MAG cm3 ID]: %BLUE%GC%CONTINUE%// Identified grand charms default name to "GC".
 ItemDisplay[MAG ((rin OR amu OR WEAPON) ILVL>87) OR (MAG (cm1 OR cm3) ILVL>90)) ]: %NAME% %WHITE%[%RED%i%ILVL%%WHITE%]%CONTINUE%// Item level on magic rings, amulets, and weapons 88+ for crafting. Item level on small and grand charms 91+ for rerolling.
-ItemDisplay[((NMAG (WEAPON OR ARMOR)) OR MAG OR RARE OR UNI OR SET) PRICE>34999]: %NAME% %DARK_GREEN%$%GOLD%35K%CONTINUE%// Non magic armor, weapons, magic, rare, unique, and set items worth 35,000 gold.
+ItemDisplay[PRICE>34999]: %NAME% %DARK_GREEN%$%GOLD%35K%CONTINUE%// Non magic armor, weapons, magic, rare, unique, and set items worth 35,000 gold.
 //ItemDisplay[ALVL>79]: %NAME% %WHITE%[%RED%a%ILVL%%WHITE%]%CONTINUE%// Non magic armor, weapons, magic, rare, unique, and set items worth 35,000 gold.
 
 // ==================== Gold ====================
@@ -78,15 +86,24 @@ ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME
 // ==================== Maps ====================
 // Dungeons are in the GG Items section
 ItemDisplay[std]: %NAME%{%TAN%Note%WHITE%: cube with map for 10% XP, 20% MF/GF, and 20% Density%NL%%RED%1 Per Map}// Standard of Heroes
-ItemDisplay[(t11 OR t12 OR t13) NMAG]: %ORANGE%@@%WHITE%T1 Map%ORANGE%@@// Normal Tier 1 Maps
-ItemDisplay[(t11 OR t12 OR t13) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T1 Map%ORANGE%@@// Magic Tier 1 Maps
-ItemDisplay[(t11 OR t12 OR t13) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T1 Map%ORANGE%@@// Rare Tier 1 Maps
-ItemDisplay[(t21 OR t22 OR t23 OR t24) NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
-ItemDisplay[(t21 OR t22 OR t23 OR t24) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
-ItemDisplay[(t21 OR t22 OR t23 OR t24) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@// Normal Tier 3 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@// Magic Tier 3 Maps
-ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@// Rare Tier 3 Maps
+ItemDisplay[NMAG (t11 OR t12 OR t13)]: %DOT-6F%%RED%T1 %WHITE%%NAME%// T1 normal maps
+ItemDisplay[MAG (t11 OR t12 OR t13)]: %DOT-6F%%RED%T1%BLUE%%NAME%// T1 magic maps
+ItemDisplay[RARE (t11 OR t12 OR t13)]: %DOT-6F%%RED%T1 %YELLOW%%NAME%// T1 rare maps
+ItemDisplay[NMAG (t21 OR t22 OR t23 OR t24 OR t25)]: %DOT-6F%%RED%T2 %WHITE%%NAME%// T1 normal maps
+ItemDisplay[MAG (t21 OR t22 OR t23 OR t24 OR t25)]: %DOT-6F%%RED%T2%BLUE%%NAME%// T2 magic maps
+ItemDisplay[RARE (t21 OR t22 OR t23 OR t24 OR t25)]: %DOT-6F%%RED%T2 %YELLOW%%NAME%// T2 rare maps
+ItemDisplay[NMAG (t31 OR t32 OR t33 OR t34 OR t35 OR t36)]: %DOT-6F%%RED%T3 %WHITE%%NAME%// T3 normal maps
+ItemDisplay[MAG (t31 OR t32 OR t33 OR t34 OR t35 OR t36)]: %DOT-6F%%RED%T3 %BLUE%%NAME%// T3 magic maps
+ItemDisplay[RARE (t31 OR t32 OR t33 OR t34 OR t35 OR t36)]: %DOT-6F%%RED%T3 %YELLOW%%NAME%// T3 rare maps
+//ItemDisplay[(t11 OR t12 OR t13) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T1 Map%ORANGE%@@// Normal Tier 1 Maps
+//ItemDisplay[(t11 OR t12 OR t13) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T1 Map%ORANGE%@@// Magic Tier 1 Maps
+//ItemDisplay[(t11 OR t12 OR t13) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T1 Map%ORANGE%@@// Rare Tier 1 Maps
+//ItemDisplay[(t21 OR t22 OR t23 OR t24) NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
+//ItemDisplay[(t21 OR t22 OR t23 OR t24) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
+//ItemDisplay[(t21 OR t22 OR t23 OR t24) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@// Normal Tier 3 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@// Magic Tier 3 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@// Rare Tier 3 Maps
 
 // ==================== Uber Items ==================== ........... From Kryszard's PD2 Loot Filter ver 1.5.5 ........... 
 ItemDisplay[(dcho OR dcso OR dcbl)]: %BORDER-62%%RED%%NAME%{%ORANGE%Black Soulstone %WHITE%+ %ORANGE%Prime Evil Soul %WHITE%+ %ORANGE%Pure Demonic Essence%NL%%TAN%DClone Recipe:}// Black Soulstone, Prime Evil Soul, Pure Demonic Essence, Vision Of Terror
@@ -172,9 +189,9 @@ ItemDisplay[jew RES>0 ID]: %GOLD%@%PURPLE%RES %NAME%// All resistances.
 
 // ==================== Gems ====================
 ItemDisplay[GEMLEVEL<4 DIFF=2]: // Hide chipped, flawed, and regular gems in Hell.
-ItemDisplay[GEMLEVEL>3]: %PX-20%%NAME%%CONTINUE%// Notify flawless and perfect.
-ItemDisplay[GEM=5]: %NAME%// Perfect gems.
-ItemDisplay[GEM<5]: %NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 %WHITE%Gems with %GRAY%key %WHITE%to upg}// Recipe for combining gems.
+ItemDisplay[GEM>3]: %PX-20%%NAME%%CONTINUE%// Notify flawless and perfect.
+ItemDisplay[GEM<5]: %NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 %WHITE%Gems with %GRAY%key %WHITE%to upg%BLUE%%NL%Unstack to see properties}// Recipe for combining gems.
+ItemDisplay[GEM=5]: %NAME%{%BLUE%Unstack to see properties}// Recipe for combining gems.
 
 // ==================== Runes ====================
 ItemDisplay[RUNE<15]: %PX-62%%NAME%{%TAN%Note%WHITE%: Mix %ORANGE%3 Runes %WHITE%with %GRAY%key %WHITE%to upg}// Notify for runes EL-Dol.
@@ -283,7 +300,7 @@ ItemDisplay[t41]: %BORDER-0E%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NA
 
 // ==================== Runewords ==================== >>>>>>>>>>>>>>>>> RUNEWORDS ARE BASED OFF THE PD2 WEBSITE <<<<<<<<<<<<<< https://projectdiablo2.miraheze.org/wiki/Main_Page
 // .......... BODY ARMOR ..........
-ItemDisplay[NMAG EQ2 SOCK=2]: %NAME%{%WHITE%Prudence, Smoke, Stealth%NL%%ORANGE%Runewords}%CONTINUE%.
+ItemDisplay[NMAG EQ2 SOCK=2]: %NAME%{%WHITE%Prudence, Smoke, Stealth%NL%%ORANGE%Runewords}%CONTINUE%
 ItemDisplay[NMAG EQ2 SOCK=3]: %NAME%{%WHITE%Lionheart%NL%Wealth, Duress, Enigma,%NL%Gloom, Dragon, Bone,%NL%Enlightenment, Myth, Peace%NL%%ORANGE%Runewords}%CONTINUE%
 ItemDisplay[NMAG EQ2 SOCK=4]: %NAME%{%WHITE%Fortitude%NL%Chains of Honor, Bramble, Stone,%NL%%ORANGE%Runewords}%CONTINUE%
 // .......... Shields ..........
@@ -348,7 +365,7 @@ ItemDisplay[NMAG !UNI WP13 SOCK=6]: %NAME%{%WHITE%Silence, Breath of the Dying%N
 ItemDisplay[NMAG EQ2 !SUP SOCK=0]: %NAME%{%WHITE%Tal + Thul + %YELLOW%P Topaz%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior base body armor socket recipe.
 ItemDisplay[NMAG EQ2 SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior base body armor socket recipe.
 ItemDisplay[NMAG (EQ1 OR EQ7) !SUP SOCK=0]: %NAME%{%WHITE%Ral + Thul + %BLUE%P Sapphire%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior helmet socket recipe.
-ItemDisplay[NMAG (EQ1 OR EQ7) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%.// Superior helmet socket recipe.
+ItemDisplay[NMAG (EQ1 OR EQ7) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior helmet socket recipe.
 ItemDisplay[NMAG (EQ3 OR CL3) !SUP SOCK=0]: %NAME%{%WHITE%Tal + Amn + %RED%P Ruby%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior shield socket recipe.
 ItemDisplay[NMAG (EQ3 OR CL3) SUP SOCK=0]: %NAME%{%GOLD%Larzuk Quest %WHITE%or %PURPLE%WSS%NL%%Orange% Socket Recipe}%CONTINUE%// Superior shield socket recipe.
 ItemDisplay[NMAG WEAPON !SUP SOCK=0]: %NAME%{%WHITE%Ral + Amn + %Purple%P Amythest%NL%%Orange% Socket Recipe}%CONTINUE%// Non superior weapon socket recipe.
