@@ -1,7 +1,7 @@
 // Baneazy's Project Diablo 2 Loot Filter V2.2a
 // Youtube: https://www.youtube.com/channel/UC06FIZChVr1558K4J0LlDoQ
 // Twitch: Twitch.tv/Baneazy
-// Date: 8/4/2021
+// Date: 3/17/2021
 //
 // V3.0 changed maps to show tier and name. Added "unstack to see properties" to gems
 // V2.1 added standard of heroes for cubing, cartographer's orb, horadrim scarab, and updated maps/dungeon.
@@ -81,7 +81,14 @@ ItemDisplay[cqv DIFF>0]://%WHITE%Bolts// Bolts. Not shown after Normal. Can stil
 ItemDisplay[aqv DIFF>0]://%WHITE%Arrows// Arrows. Not shown after Normal. Can still be bought from vendors.
 ItemDisplay[wss]: %MAP-9B%%NAME%// Worldstone Shard
 ItemDisplay[lbox]: %BORDER-0E%%GREEN%$%PURPLE%$%ORANGE%$%RED%$%YELLOW%$ %GOLD%%NAME% %YELLOW%$%RED%$%ORANGE%$%PURPLE%$%GREEN%$// Larzuk's Puzzle Box.
-ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb, Cartographer's Orb, Horadrim Scarab
+ItemDisplay[(imra OR imma OR scou OR rera OR upma OR upmp OR scrb)]: %GOLD%%NAME%%CONTINUE%// Zakarum Orb, Arcane Orb, Orb of Destruction, Horardrim Orb, Angelic Orb, Cartographer's Orb, Horadrim Scarab
+ItemDisplay[imma]: %NAME%{%GOLD%this %WHITE%+ %BLUE%jewel %WHITE%+ white map%NL%%DARK_GREEN%common -> magic}// Arcane Orb description
+ItemDisplay[imra]: %NAME%{%GOLD%this %WHITE%+ %BLUE%jewel %WHITE%+ %ORANGE%Rune lvl10+ %WHITE%+ white map%NL%%DARK_GREEN%common -> rare}// Zakarum Orb description
+ItemDisplay[upma]: %NAME%{%GOLD%this %WHITE%+ P. Skull %WHITE%+ %ORANGE%Rune lvl10+ %BLUE%+ magic map%NL%%DARK_GREEN%magic -> rare}// Angelic Orb description
+ItemDisplay[rera]: %NAME%{%GOLD%this %WHITE%+ P. Gem + %ORANGE%Rune lvl10+ %YELLOW%+ rare map%NL%%DARK_GREEN%reroll rare map}// Horadrim Orb description
+ItemDisplay[scou]: %NAME%{%GOLD%this %WHITE%+ Hel + %BLUE%magic%WHITE%/%YELLOW%rare %WHITE%map%NL%%DARK_GREEN%magic/rare map to common}// Orb of Destruction description
+ItemDisplay[upmp]: %NAME%{%GOLD%this %WHITE%+ 3 maps of same tier%NL%%DARK_GREEN%combine 3 maps to next tier}// Cartographer's Orb description
+ItemDisplay[scrb]: %NAME%{%GOLD%this %WHITE%+ %RED%T3 %WHITE%map%NL%%DARK_GREEN%turns t3 maps into dungeons}// Horadrim Scarab description
 
 // ==================== Maps ====================
 // Dungeons are in the GG Items section
@@ -101,9 +108,9 @@ ItemDisplay[RARE (t31 OR t32 OR t33 OR t34 OR t35 OR t36)]: %DOT-6F%%RED%T3 %YEL
 //ItemDisplay[(t21 OR t22 OR t23 OR t24) NMAG]: %ORANGE%@@%WHITE%T2 Map%ORANGE%@@// Normal Tier 2 Maps
 //ItemDisplay[(t21 OR t22 OR t23 OR t24) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T2 Map%ORANGE%@@// Magic Tier 2 Maps
 //ItemDisplay[(t21 OR t22 OR t23 OR t24) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T2 Map%ORANGE%@@// Rare Tier 2 Maps
-//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@// Normal Tier 3 Maps
-//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@// Magic Tier 3 Maps
-//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@// Rare Tier 3 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37) NMAG]: %DOT-6F%%ORANGE%@@%WHITE%T3 Map%ORANGE%@@// Normal Tier 3 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37) MAG !ID]: %DOT-6F%%ORANGE%@@%BLUE%T3 Map%ORANGE%@@// Magic Tier 3 Maps
+//ItemDisplay[(t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37) RARE !ID]: %DOT-6F%%ORANGE%@@%YELLOW%T3 Map%ORANGE%@@// Rare Tier 3 Maps
 
 // ==================== Uber Items ==================== ........... From Kryszard's PD2 Loot Filter ver 1.5.5 ........... 
 ItemDisplay[(dcho OR dcso OR dcbl)]: %BORDER-62%%RED%%NAME%{%ORANGE%Black Soulstone %WHITE%+ %ORANGE%Prime Evil Soul %WHITE%+ %ORANGE%Pure Demonic Essence%NL%%TAN%DClone Recipe:}// Black Soulstone, Prime Evil Soul, Pure Demonic Essence, Vision Of Terror
